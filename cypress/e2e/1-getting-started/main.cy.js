@@ -26,7 +26,7 @@ describe('Login True', () => {
   })
 
 //Positif test 3
-describe('Login True', () => {
+describe('Logout True', () => {
 
     it('input valid username dan password then Login', () => {
 
@@ -41,12 +41,12 @@ describe('Login True', () => {
 
 
 //negatif test 1
-describe('Click element', () => {
+describe('Click element without enter pass', () => {
 
     it('clicks the button "login"', () => {
 
       cy.visit('https://the-internet.herokuapp.com/login')
-      cy.contains("login").click()
+      cy.contains(" Login").click()
 
     })
 
@@ -63,7 +63,7 @@ describe('Login Wrong Password', () => {
 
       cy.get('#password').type("secret_sauce")
 
-      cy.contains("login").click()
+      cy.contains(" Login").click()
 
     })
 
