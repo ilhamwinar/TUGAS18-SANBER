@@ -7,7 +7,7 @@ describe('template spec',() => {
     })
 })
 
-//nPositif test 2
+//Positif test 2
 describe('Login True', () => {
 
     it('input valid username dan password then Login', () => {
@@ -18,7 +18,21 @@ describe('Login True', () => {
 
       cy.get('#password').type("SuperSecretPassword!")
 
-      cy.contains("login").click()
+      cy.contains(' Login').click()
+      cy.wait(2000)
+
+    })
+
+  })
+
+//Positif test 3
+describe('Login True', () => {
+
+    it('input valid username dan password then Login', () => {
+
+      cy.visit('https://the-internet.herokuapp.com/login')
+
+      cy.contains(' Logout').click()
       cy.wait(2000)
 
     })
@@ -26,32 +40,31 @@ describe('Login True', () => {
   })
 
 
+//negatif test 1
+describe('Click element', () => {
 
-// //negatif test 1
-// describe('Click element', () => {
+    it('clicks the button "login"', () => {
 
-//     it('clicks the button "login"', () => {
+      cy.visit('https://the-internet.herokuapp.com/login')
+      cy.contains("login").click()
 
-//       cy.visit('https://the-internet.herokuapp.com/login')
-//       cy.contains("login").click()
+    })
 
-//     })
+  })
 
-//   })
+//negatif test 2
+describe('Login Wrong Password', () => {
 
-// //negatif test 2
-// describe('Login Wrong Password', () => {
+    it('input valid username dan password then Login', () => {
 
-//     it('input valid username dan password then Login', () => {
+      cy.visit('https://the-internet.herokuapp.com/login')
 
-//       cy.visit('https://the-internet.herokuapp.com/login')
+      cy.get('#username').type("standard_user")
 
-//       cy.get('#username').type("standard_user")
+      cy.get('#password').type("secret_sauce")
 
-//       cy.get('#password').type("secret_sauce")
+      cy.contains("login").click()
 
-//       cy.contains("login").click()
+    })
 
-//     })
-
-//   })
+  })
